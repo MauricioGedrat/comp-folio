@@ -8,11 +8,7 @@
 
 module.exports = {
     mode: process.env.NODE_ENV ? 'jit' : undefined,
-    content: [
-        './public/**/*.html',
-        './src/**/*.{js,jsx,ts,tsx,vue}',
-        ' ./node_modules/flowbite/**/*.js',
-    ],
+    content: ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx,vue}'],
     darkMode: 'class', // or 'media' or 'class'
     theme: {
         fontFamily: {
@@ -65,5 +61,5 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [require('flowbite/plugin')],
+    plugins: [],
 }

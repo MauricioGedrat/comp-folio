@@ -9,13 +9,7 @@ const Results = () => {
 
     console.log(imageToModal)
     return (
-        <div id="Results" className="p-32 bg-white">
-            <div className="flex justify-center p-24 text-4xl font-bold font-raleway">
-                <h1 className="text-black">
-                    <span className="border-b-4 border-[#95b89f]">Resul</span>
-                    tados
-                </h1>
-            </div>
+        <div id="Results" className="px-8 pt-40 ">
             <div className="flex justify-center">
                 <div className="flex justify-center">
                     <div className="gap-8 columns-1 sm:columns-2 lg:columns-3">
@@ -29,14 +23,13 @@ const Results = () => {
                                             //  setShow(true)
                                             setImageToModal(imageSrc.img)
                                         }}
-                                        className="duration-300 cursor-pointer hover:relative hover:z-50 hover:scale-125"
                                     >
                                         <Image
                                             alt="modal"
-                                            className=""
                                             src={imageSrc.img.src}
                                             width={imageSrc.img.width}
                                             height={imageSrc.img.height}
+                                            className="duration-300 cursor-pointer hover:relative hover:z-[200] hover:scale-125 hover:rotate-6 hover:opacity-70"
                                         />
                                     </div>
                                 </div>
