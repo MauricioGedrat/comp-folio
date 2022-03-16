@@ -1,5 +1,5 @@
 import { LeftToRight } from 'assets/animations'
-import { Opacity, OpacityAndScale } from 'common/animations'
+import { OpacityAndScale } from 'common/animations'
 import Deco1Svg from 'common/svgIcons/Deco1Svg'
 
 import Image from 'next/image'
@@ -8,7 +8,7 @@ import { imagesFolio } from './Images'
 
 const Folio = () => {
     return (
-        <div id="folio" className="box-border pt-20">
+        <div id="folio" className="box-border pt-20 pl-5 pr-5">
             <LeftToRight>
                 <section>
                     <div className="flex justify-center mt-20">

@@ -1,3 +1,4 @@
+import 'flowbite'
 import Header from 'common/header'
 import Inicio from 'components/inicio'
 import React from 'react'
