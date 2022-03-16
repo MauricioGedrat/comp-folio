@@ -6,9 +6,8 @@ import React from 'react'
 const inicio = () => {
     return (
         <div>
-            <FormTeste />
-            {/* <Header />
-            <Inicio /> */}
+            <Header />
+            <Inicio />
         </div>
     )
 }
