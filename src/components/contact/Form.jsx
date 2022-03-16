@@ -1,56 +1,44 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { useForm, ErrorMessage } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
-const isValidEmail = (email) =>
-    // eslint-disable-next-line no-useless-escape
-    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        email
-    )
-
-export default function App() {
-    const { register, handleSubmit, errors } = useForm({
-        mode: 'onBlur',
-        defaultValues: {
-            email: '',
-        },
+const FormTeste = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { isValid },
+    } = useForm({
+        mode: 'onChange',
     })
-    const onSubmit = () => {}
 
-    const handleEmailValidation = (email) => {
-        console.log('ValidateEmail was called with', email)
-
-        const isValid = isValidEmail(email)
-
-        const validityChanged =
-            (errors.email && isValid) || (!errors.email && !isValid)
-        if (validityChanged) {
-            console.log('Fire tracker with', isValid ? 'Valid' : 'Invalid')
-        }
-
-        return isValid
+    const onSubmit = (data) => {
+        console.log('onSubmit', data)
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-                type="text"
-                placeholder="email"
-                name="email"
-                ref={register({
-                    required: true,
-                    validate: handleEmailValidation,
-                })}
-            />
-            <button type="submit">wfefefw</button>
-            <ErrorMessage
-                errors={errors}
-                name="email"
-                message="This is required"
-            />
-        </form>
+        <div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <input
+                    type="email"
+                    placeholder="Email"
+                    {...register('Email', {
+                        required: true,
+                        pattern: /^\S+@\S+$/i,
+                    })}
+                />
+                <input
+                    type="nome"
+                    placeholder="Nome Completo"
+                    {...register('Nome', {
+                        required: true,
+                    })}
+                />
+
+                <button disabled={!isValid} type="submit">
+                    {!isValid ? 'Preencha o formulário' : 'Enviar'}
+                </button>
+            </form>
+        </div>
     )
 }
 
-const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
+export default FormTeste
